@@ -1,8 +1,9 @@
 import "./App.css"
+import Card from "./UI/Card"
 
 function App() {
   return (
-    <div></div>
+    <Card className="converter"/>
   );
 }
 
