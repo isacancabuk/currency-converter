@@ -1,0 +1,22 @@
+form{
+    width: 100%;
+    height: 250px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.amount, .from, .to{
+    display: flex;
+    flex-direction: column;
+}
+
+.actions{
+    text-align: end;
+}

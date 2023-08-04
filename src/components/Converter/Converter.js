@@ -7,9 +7,9 @@ const Converter = () => {
   };
 
   return (
-    <div>
+    <section>
       <ConverterForm onConvert={convert} />
-    </div>
+    </section>
   );
 };
 
