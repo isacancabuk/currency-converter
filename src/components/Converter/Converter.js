@@ -2,8 +2,8 @@ import "./Converter.css";
 import ConverterForm from "./ConverterForm";
 
 const Converter = () => {
-  const convert = () => {
-    console.log("converting");
+  const convert = (data) => {
+    console.log(data);
   };
 
   return (
