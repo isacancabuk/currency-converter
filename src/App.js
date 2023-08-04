@@ -1,9 +1,14 @@
 import "./App.css"
-import Card from "./UI/Card"
+import Card from "./components/UI/Card"
+import Converter from "./components/Converter/Converter"
 
 function App() {
   return (
-    <Card className="converter"/>
+    <main>
+      <Card className="converter"/>
+      <Converter/>
+    </main>
+    
   );
 }
 
