@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ConverterForm.css";
 
 const OPTION_URL = "https://api.exchangerate.host/latest";
 
 const ConverterForm = (props) => {
-  const [option, setOption] = useState({});
+  const [option, setOption] = useState();
   const [amount, setAmount] = useState(100);
-  const getAmount = (e) => {
-    setAmount(e.target.value);
-  };
+  const [fromValue, setFromValue] = useState();
+  const [toValue, setToValue] = useState();
+
+  useEffect(() => {
+    fetch(OPTION_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        data = Object.keys(data.rates);
+        setOption(data);
+      });
+  });
+
+  const getAmount = (e) => setAmount(e.target.value);
+  const getOptionFrom = (e) => setFromValue(e.target.value);
+  const getOptionTo = (e) => setToValue(e.target.value);
 
   const convertData = (event) => {
     event.preventDefault();
     let data = {
       newAmount: amount,
+      selectedFrom: fromValue,
+      selectedTo: toValue,
     };
     props.onConvert(data);
   };
@@ -34,12 +48,20 @@ const ConverterForm = (props) => {
         </div>
         <div className="from">
           <label>From</label>
-          <select></select>
+          <select onChange={getOptionFrom}>
+            {option?.map((opt, idx) => (
+              <option key={idx} value={fromValue}>
+                {opt}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="to">
           <label>To</label>
-          <select>
-            <option>Euro</option>
+          <select onChange={getOptionTo}>
+            {option?.map((opt, idx) => (
+              <option key={idx}>{opt}</option>
+            ))}
           </select>
         </div>
       </div>
