@@ -38,6 +38,7 @@ const ConverterForm = (props) => {
         <div className="amount">
           <label>Amount</label>
           <input
+            placeholder="100"
             type="number"
             onClick={() => setAmount("")}
             onChange={getAmount}

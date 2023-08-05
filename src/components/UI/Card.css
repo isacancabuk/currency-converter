@@ -1,4 +1,4 @@
 .card{
     border-radius: 10px;
-    background-color: antiquewhite;
+    background-color: var(--bgcolour-form);
 }

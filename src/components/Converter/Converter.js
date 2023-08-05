@@ -5,6 +5,7 @@ import ConverterForm from "./ConverterForm";
 
 const Converter = () => {
   const [convertedValue, setConvertedValue] = useState();
+  const [from, setFrom] = useState();
 
   async function getConvertedValue(url) {
     const res = await fetch(url);
@@ -14,6 +15,7 @@ const Converter = () => {
   }
 
   const convert = (data) => {
+    setFrom(data.selectedFrom);
     let FETCH_REQUEST = `https://api.exchangerate.host/latest?BASE=${data.selectedFrom}&symbols=${data.selectedTo}&amount=${data.newAmount}`;
     getConvertedValue(FETCH_REQUEST);
   };
@@ -21,7 +23,7 @@ const Converter = () => {
   return (
     <section>
       <ConverterForm onConvert={convert} />
-      <Card>{convertedValue}</Card>
+      <div className="converted-value">{convertedValue}</div>
     </section>
   );
 };

@@ -1,4 +1,9 @@
 section{
-    width: 100%;
-    
+    width: 100%; 
+}
+
+.converted-value{
+    font-family: 'Poppins';
+    text-align: center;
+    font-size: 20px;
 }
